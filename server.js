@@ -22,8 +22,11 @@ let lon=req.query.cityLon;
     })
     let forecast1 =  new Forecast(cityNames.date,cityNames.description) ;
     arr.push(forecast1);
+    console.log(cityNames);
     res.send({cityNames,arr});
 })
+
+
 
 class Forecast {
     
