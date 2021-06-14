@@ -1,7 +1,8 @@
 const express=require('express');
 const server=express();
 const weatherData = require('./data/weather.json');
-
+const cors = require('cors');
+server.use(cors());
 const PORT = 3010; 
 
 const arr=[];
@@ -23,7 +24,7 @@ let lon=req.query.cityLon;
     let forecast1 =  new Forecast(cityNames.date,cityNames.description) ;
     arr.push(forecast1);
     console.log(cityNames);
-    res.send({cityNames,arr});
+    res.send(cityNames);
 })
 
 
@@ -53,7 +54,7 @@ server.get('/',(req,res) =>{
     
     //localhost:3010 .....
 server.get('*',(req,res) =>{
-    res.status(404).send('sorry, this page not found');
+    res.status(500).send('sorry, this page not found');
 })
 
 
