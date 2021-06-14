@@ -42,7 +42,10 @@ class Forecast {
 }
 
 
-
+//locallhost:3010:/
+server.get('/',(req,res) =>{
+    res.send('home route');
+})
 
 
 //locallhost:3010/getName?cityName=Amman
