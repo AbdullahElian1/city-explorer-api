@@ -36,7 +36,17 @@ server.get('/getNames', getNameshandler)
         })
     res.send(weatherArray);
     })
+    .catch(err=>{
+        res.send(`error the server down =>${err}`);
+    })
 
+  }
+
+  class Forcast{
+    constructor(item){
+        this.description = item.weather.description;
+        this.date = item.valid_date;
+    }
   }
 
 
@@ -53,6 +63,9 @@ server.get('/getNames', getNameshandler)
         return new Movie (item);
         })
     res.send(movieArray);
+    })
+    .catch(err=>{
+        res.send(`error the server down =>${err}`);
     })
 
   }
