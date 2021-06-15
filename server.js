@@ -42,7 +42,7 @@ server.get('/getNames', getNameshandler)
 
   }
 
-  class Forcast{
+  class Forecast{
     constructor(item){
         this.description = item.weather.description;
         this.date = item.valid_date;
