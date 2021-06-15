@@ -24,13 +24,13 @@ let lon=req.query.cityLon;
         if(item.lat == lan && item.lon==lon)
         return item.city_name;
     })
-    // let forecast1 =  new Forecast(cityNames.date,cityNames.description) ;
-    // arr.push(forecast1);
-    console.log(cityNames);
-    if(cityNames)
-    res.send(cityNames);
-    else
-    res.send('sorry, this page not found');
+    let forecast1 =  new Forecast(cityNames.date,cityNames.description) ;
+    arr.push(forecast1);
+    console.log(arr);
+    // if(cityNames)
+    res.send(arr);
+    // else
+    // res.send('sorry, this page not found');
 
 })
 
