@@ -1,11 +1,11 @@
-require("dotenv").config();
 const express=require('express');
 
 const server=express();
 const weatherData = require('./data/weather.json');
 const cors = require('cors');
 server.use(cors());
-const PORT = process.env.REACT_APP_PORT; 
+require ("dotenv").config();
+const PORT = process.env.PORT || 3010; 
 
 const arr=[];
 
@@ -15,7 +15,7 @@ server.get('/test',(req,res)=>{
     
 });
 
-//localhost:3010/getNames?cityLan=-33.87&cityLon=151.21
+//localhost:3010/getNames?cityLan=-36.071254&cityLon=-95.785269
 server.get('/getNames',(req,res)=>{
 let lan=req.query.cityLan;
 let lon=req.query.cityLon;
@@ -23,8 +23,8 @@ let lon=req.query.cityLon;
         if(item.lat == lan && item.lon==lon)
         return item.city_name;
     })
-    let forecast1 =  new Forecast(cityNames.date,cityNames.description) ;
-    arr.push(forecast1);
+    // let forecast1 =  new Forecast(cityNames.date,cityNames.description) ;
+    // arr.push(forecast1);
     console.log(cityNames);
     res.send(cityNames);
 })
@@ -62,7 +62,7 @@ server.get('*',(req,res) =>{
 
 
 
-server.listen(PORT,()=>{
+server.listen(process.env.PORT || 3010,()=>{
     console.log(`im here ${PORT}`);
 });
 
