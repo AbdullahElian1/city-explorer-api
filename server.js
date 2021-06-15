@@ -37,7 +37,7 @@ server.get('/getNames', getNameshandler)
     res.send(weatherArray);
     })
     .catch(err=>{
-        res.send(`error the server down =>${err}`);
+        res.send(`error the server down weather =>${err}`);
     })
 
   }
