@@ -19,6 +19,7 @@ server.get('/test',(req,res)=>{
 server.get('/getNames',(req,res)=>{
 let lan=req.query.cityLan;
 let lon=req.query.cityLon;
+
     let cityNames = weatherData.city.find(item=>{
         if(item.lat == lan && item.lon==lon)
         return item.city_name;
@@ -26,7 +27,11 @@ let lon=req.query.cityLon;
     // let forecast1 =  new Forecast(cityNames.date,cityNames.description) ;
     // arr.push(forecast1);
     console.log(cityNames);
+    if(cityNames)
     res.send(cityNames);
+    else
+    res.send('sorry, this page not found');
+
 })
 
 
