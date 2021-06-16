@@ -83,7 +83,7 @@ class Movie {
        
         this.title=item.title;
         this.overview=item.overview;
-        this.imagel=item.poster_path;
+        this.imagel=`https://image.tmdb.org/t/p/original${item.poster_path}`;
         this.releasedOn=item.release_date;
 
 
